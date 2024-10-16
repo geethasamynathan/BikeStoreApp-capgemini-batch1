@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BikeStoreApp_FrontEnd.Models.User>
+
+@{
+    ViewData["Title"] = "User List";
+}
+
+<h2>User List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a href="@Url.Action("Details", "Users", new { id = user.UserId })">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
